@@ -108,6 +108,39 @@ export const App: React.FC = () => {
     }
   }, [certificates]);
 
+  // Auto-open certificate modal if ?verify= query param is present
+  useEffect(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const verifySerial = params.get('verify');
+      if (verifySerial) {
+        const found = certificates.find(c => c.serialNumber === verifySerial);
+        if (found) {
+          setIsVaultOpen(true);
+        } else {
+          const publicCert: OwnershipCertificate = {
+            certificateId: `shared-${verifySerial}`,
+            serialNumber: verifySerial,
+            artworkId: 'fiji-01',
+            artworkTitle: '태평양의 석양과 밤의 경계',
+            artistName: '타니엘라 라부부',
+            collectorName: '김모두',
+            collectorPhone: '010-****-5432',
+            purchaseType: 'original_vault',
+            price: 195000,
+            mintedAt: '2026-09-12',
+            vaultStatus: 'in_vault',
+            vaultExpiryDate: '2027-09-12',
+          };
+          setCertificates(prev => [publicCert, ...prev.filter(c => c.serialNumber !== verifySerial)]);
+          setIsVaultOpen(true);
+        }
+      }
+    } catch (e) {
+      // ignore
+    }
+  }, []);
+
   // Handlers
   const handleOpenDetail = (artwork: Artwork) => {
     const current = artworks.find(a => a.id === artwork.id) || artwork;

@@ -15,7 +15,18 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, a
   const isRedeemed = certificate.vaultStatus === 'redeemed';
 
   const handleCopyLink = () => {
-    navigator.clipboard.writeText(`https://vangogh21.org/verify/${certificate.serialNumber}`);
+    let verifyUrl = `https://vangogh-21.web.app/?verify=${certificate.serialNumber}`;
+    if (typeof window !== 'undefined' && window.location.origin) {
+      if (window.location.origin.includes('github.io')) {
+        verifyUrl = `https://moonseekerer.github.io/vangogh21/?verify=${certificate.serialNumber}`;
+      } else if (window.location.origin.includes('web.app') || window.location.origin.includes('firebaseapp.com')) {
+        verifyUrl = `https://vangogh-21.web.app/?verify=${certificate.serialNumber}`;
+      } else {
+        const path = window.location.pathname.replace(/\/+$/, '');
+        verifyUrl = `${window.location.origin}${path}/?verify=${certificate.serialNumber}`;
+      }
+    }
+    navigator.clipboard.writeText(verifyUrl);
     setIsCopied(true);
     setTimeout(() => setIsCopied(false), 2000);
   };
