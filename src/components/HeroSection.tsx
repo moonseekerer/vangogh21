@@ -87,7 +87,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick, onOpen
         {/* 1. Cinematic Background: Authentic Starry Night Artwork + Ambient Video Layer */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden select-none">
           <img 
-            src="/images/starry_night_hero.jpg" 
+            src="./images/starry_night_hero.jpg" 
             alt="The Starry Night - Vincent van Gogh" 
             className="absolute inset-0 w-full h-full object-cover opacity-35 scale-105 transition-transform duration-[12000ms] ease-out motion-safe:scale-110"
           />
@@ -97,10 +97,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick, onOpen
             loop 
             muted 
             playsInline 
-            poster="/images/starry_night_hero.jpg"
+            poster="./images/starry_night_hero.jpg"
             className="absolute inset-0 w-full h-full object-cover opacity-45 mix-blend-screen"
           >
-            <source src="/videos/night_timelapse.webm" type="video/webm" />
+            <source src="./videos/night_timelapse.webm" type="video/webm" />
           </video>
 
           {/* Cinematic Vignette Overlay */}

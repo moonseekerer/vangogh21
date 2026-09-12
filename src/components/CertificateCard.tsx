@@ -39,7 +39,7 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, a
             <div className="flex items-center justify-between border-b border-vangogh-gold/20 pb-3">
               <div className="flex items-center gap-2">
                 <img 
-                  src="/logo.jpg" 
+                  src="./logo.jpg" 
                   alt="반 고흐 21 로고" 
                   className="w-7 h-7 rounded-full border border-vangogh-gold/40"
                 />
@@ -56,7 +56,7 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, a
             <div className="space-y-3 my-auto">
               <div className="w-20 h-20 mx-auto rounded-lg overflow-hidden border border-vangogh-gold/40 shadow-md">
                 <img 
-                  src={artwork?.imageUrl || "/artworks/artwork-01.jpg"} 
+                  src={artwork?.imageUrl || "./artworks/artwork-01.jpg"} 
                   alt={certificate.artworkTitle}
                   className="w-full h-full object-cover"
                 />

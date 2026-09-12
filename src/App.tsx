@@ -306,7 +306,7 @@ export const App: React.FC = () => {
           
           <div className="flex items-center gap-3">
             <img 
-              src="/logo.jpg" 
+              src="./logo.jpg" 
               alt="반 고흐 21 로고" 
               className="w-8 h-8 rounded-full border border-vangogh-gold/40"
             />

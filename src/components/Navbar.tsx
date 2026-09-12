@@ -36,7 +36,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenVault, onOpenAbout, onOpen
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
           <img 
-            src="/logo.jpg" 
+            src="./logo.jpg" 
             alt="반 고흐 21 공식 엠블럼" 
             className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover shadow-sm border border-vangogh-gold/40 shrink-0"
           />
