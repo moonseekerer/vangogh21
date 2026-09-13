@@ -164,7 +164,7 @@ export const CuratorAboutModal: React.FC<CuratorAboutModalProps> = ({ onClose })
               <div className="space-y-1">
                 <h4 className="font-bold text-neutral-900 text-xs flex items-center gap-1.5">
                   <ShieldCheck className="w-3.5 h-3.5 text-vangogh-gold" />
-                  <span>1. 디지털 소유 보증권과 실제 작품 교환권의 분리 (한국금거래소 모델 차용)</span>
+                  <span>1. 디지털 소유 보증권과 실제 작품 교환권의 분리</span>
                 </h4>
                 <p className="text-neutral-600 pl-5">
                   원작의 1:1 독점 소장 권리를 확정한 뒤, 현지 보관소에서 1년간 무상 보관을 지원합니다. 소장자는 디지털 소유 보증권을 통해 소장 자격을 즉시 증명받으며, 원하는 시점에 언제든 <strong className="text-neutral-800">&lsquo;실제 작품 교환권&rsquo;</strong>을 행사하여 실물 원화를 안전하게 국내로 수령할 수 있습니다.

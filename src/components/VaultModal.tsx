@@ -91,7 +91,7 @@ export const VaultModal: React.FC<VaultModalProps> = ({
           <div className="p-4 bg-vangogh-stone/60 rounded-xl border border-vangogh-gold/30 text-xs text-vangogh-charcoal/80 space-y-1">
             <h4 className="font-bold text-vangogh-navy flex items-center gap-1.5">
               <PackageCheck className="w-4 h-4 text-vangogh-gold" />
-              <span>한국금거래소 모델 차용: 실제 작품 교환(Redemption) 시스템 작동 안내</span>
+              <span>실제 작품 교환(Redemption) 시스템 작동 안내</span>
             </h4>
             <p className="leading-relaxed">
               취득하신 원작은 1년간 피지 수거 허브 및 제휴 전시관에 무상으로 안전 보관됩니다. 
