@@ -304,27 +304,38 @@ export const App: React.FC = () => {
 
         {/* Next Season Teaser */}
         <section className="mt-12 pt-8 border-t border-neutral-200">
-          <div className="bg-[#0A101D] text-white p-7 sm:p-9 border border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div className="space-y-2.5 max-w-2xl">
+          <div className="relative overflow-hidden bg-[#0A101D] text-white p-7 sm:p-9 border border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm group">
+            {/* Background Mongolian Steppe Oil Painting Image */}
+            <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+              <img 
+                src="./images/season2_mongolia.jpg" 
+                alt="시즌 2 몽골 초원 유화 배경" 
+                className="absolute inset-0 w-full h-full object-cover scale-110 opacity-35 filter contrast-110 brightness-90 transition-transform duration-1000 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#060B18]/95 via-[#0A101D]/80 to-[#060B18]/85"></div>
+            </div>
+
+            {/* Content Foreground */}
+            <div className="relative z-10 space-y-2.5 max-w-2xl">
               <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-vangogh-gold uppercase font-semibold">
                 <span>NEXT SEASON</span>
                 <span className="text-white/30">/</span>
                 <span>COMING SOON</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white">
-                시즌 2 : 끝없는 지평선의 서사, 몽골 (Mongolia)
+              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white flex items-center gap-2">
+                <span>시즌 2 : 끝없는 지평선의 서사, 몽골 (Mongolia)</span>
               </h3>
-              <p className="text-xs sm:text-sm text-white/75 leading-relaxed font-normal">
+              <p className="text-xs sm:text-sm text-white/80 leading-relaxed font-normal">
                 남태평양 피지에 이어, 반 고흐 21의 시선은 중앙아시아의 거친 초원으로 향합니다. 
                 제도권 갤러리와 단절된 채 영하 30도의 혹한과 유목의 삶을 묵묵히 캔버스에 기록해 온 몽골 청년 화가들을 곧 소개합니다.
               </p>
             </div>
 
-            <div className="shrink-0 flex flex-col sm:items-end gap-1 pt-2 md:pt-0">
-              <span className="text-xs font-mono text-vangogh-gold font-bold tracking-wider">
+            <div className="relative z-10 shrink-0 flex flex-col sm:items-end gap-1 pt-2 md:pt-0">
+              <span className="text-xs font-mono text-vangogh-gold font-bold tracking-wider px-2.5 py-1 rounded bg-black/40 border border-vangogh-gold/30">
                 2026. AUTUMN OPEN
               </span>
-              <span className="text-[11px] text-white/50">
+              <span className="text-[11px] text-white/60">
                 현지 작가 인터뷰 및 1차 아카이빙 진행 중
               </span>
             </div>
