@@ -60,7 +60,7 @@ export const JudgeGuideBanner: React.FC<JudgeGuideBannerProps> = ({
         </div>
         <div className="flex items-start gap-1.5">
           <span className="font-mono text-vangogh-gold font-bold">4.</span>
-          <span><strong>[내 보관함]</strong>에서 취득한 보증서 확인 및 <strong>'실물 원화 인출(Redeem)'</strong> 신청</span>
+          <span><strong>[내 보관함]</strong>에서 취득한 보증서 확인 및 <strong>'실제 작품 교환(Redeem)'</strong> 신청</span>
         </div>
         <div className="flex items-start gap-1.5">
           <span className="font-mono text-vangogh-gold font-bold">5.</span>

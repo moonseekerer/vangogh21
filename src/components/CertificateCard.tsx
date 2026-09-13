@@ -143,7 +143,7 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, a
                 {certificate.purchaseType === 'original_vault' ? (
                   <>
                     <div><strong>안심 보관 기간:</strong> {certificate.vaultExpiryDate}까지 무료 보관</div>
-                    <div><strong>이중 양도 방지:</strong> 실물 인출 시 본 카드는 '인도 완료' 상태로 동결됩니다.</div>
+                    <div><strong>이중 양도 방지:</strong> 실제 작품 교환 시 본 카드는 '인도 완료' 상태로 동결됩니다.</div>
                   </>
                 ) : (
                   <>
@@ -198,13 +198,13 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, a
           onClick={() => onOpenRedeem(certificate)}
           className="w-full py-2.5 px-4 rounded-xl bg-vangogh-gold hover:bg-vangogh-sun text-vangogh-navy font-bold text-xs shadow-sm transition-all flex items-center justify-center gap-1.5"
         >
-          <span>실물 원화 인출 신청 (국내 안전 배송)</span>
+          <span>실제 작품 교환 신청 (국내 안전 배송)</span>
         </button>
       )}
 
       {certificate.purchaseType === 'original_vault' && isRedeemed && (
         <div className="w-full py-2 px-4 rounded-xl bg-green-50 border border-green-200 text-green-800 text-xs text-center font-medium">
-          ✓ 실물 원화 인출 신청이 완료된 작품입니다.
+          ✓ 실제 작품 교환 신청이 완료된 작품입니다.
         </div>
       )}
 

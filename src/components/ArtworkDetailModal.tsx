@@ -280,7 +280,7 @@ export const ArtworkDetailModal: React.FC<ArtworkDetailModalProps> = ({ artwork,
                 <Info className="w-4 h-4 text-vangogh-gold shrink-0 mt-0.5" />
                 {selectedType === 'original_vault' ? (
                   <div>
-                    <strong>원작 실물 소장 및 인출 안내:</strong> 1인 독점 소장권 결제 즉시 공식 디지털 소유 보증서가 발급되며, 피지 수거 허브에서 1년간 무료 보관됩니다. [내 보관함]에서 원하실 때 언제든 국내 안전 배송으로 실물 원화 인출을 신청하실 수 있습니다.
+                    <strong>원작 1:1 독점 소장 및 실제 작품 교환 안내:</strong> 1인 독점 소장권 결제 즉시 공식 디지털 소유 보증서 및 실물 작품 교환권이 발급되며, 피지 수거 허브에서 1년간 무상 보관됩니다. [내 보관함]에서 원하실 때 언제든 국내 안전 배송으로 실제 작품 교환을 신청하실 수 있습니다.
                   </div>
                 ) : (
                   <div>

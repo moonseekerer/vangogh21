@@ -91,12 +91,12 @@ export const VaultModal: React.FC<VaultModalProps> = ({
           <div className="p-4 bg-vangogh-stone/60 rounded-xl border border-vangogh-gold/30 text-xs text-vangogh-charcoal/80 space-y-1">
             <h4 className="font-bold text-vangogh-navy flex items-center gap-1.5">
               <PackageCheck className="w-4 h-4 text-vangogh-gold" />
-              <span>한국금거래소식 실물 인출(Redemption) 시스템 작동 안내</span>
+              <span>한국금거래소 모델 차용: 실제 작품 교환(Redemption) 시스템 작동 안내</span>
             </h4>
             <p className="leading-relaxed">
-              취득하신 원작은 1년간 피지 수거 허브 및 제휴 전시관에 무료로 안전 보관됩니다. 
-              원하실 때 [실물 인출 신청]을 누르시면 특수 미술품 포장 후 국내 지정 주소로 안전하게 배송됩니다. 
-              <strong>실물 인출 시 디지털 보관증은 자동으로 '실물 인도 완료' 상태로 전환되어 이중 거래가 방지됩니다.</strong>
+              취득하신 원작은 1년간 피지 수거 허브 및 제휴 전시관에 무상으로 안전 보관됩니다. 
+              원하실 때 [실제 작품 교환 신청]을 누르시면 특수 미술품 포장 후 국내 지정 주소로 안전하게 배송됩니다. 
+              <strong>실제 작품 교환을 신청하면 기존 실물 작품 교환권은 자동으로 &lsquo;실물 인도 완료&rsquo; 상태로 전환·동결되어 이중 거래가 방지됩니다.</strong>
             </p>
           </div>
 
@@ -132,7 +132,7 @@ export const VaultModal: React.FC<VaultModalProps> = ({
               
               <div className="flex items-center justify-between border-b border-vangogh-charcoal/10 pb-3">
                 <div>
-                  <h3 className="font-bold text-sm text-vangogh-navy">실물 원화 인출 신청</h3>
+                  <h3 className="font-bold text-sm text-vangogh-navy">실제 작품 교환 신청</h3>
                   <span className="text-xs text-vangogh-charcoal/60">{selectedCertForRedeem.artworkTitle}</span>
                 </div>
                 <button 
@@ -146,9 +146,9 @@ export const VaultModal: React.FC<VaultModalProps> = ({
               {redeemSuccessMsg ? (
                 <div className="py-8 text-center space-y-2">
                   <CheckCircle2 className="w-10 h-10 text-green-600 mx-auto" />
-                  <h4 className="font-bold text-base text-vangogh-navy">인출 신청이 완료되었습니다!</h4>
+                  <h4 className="font-bold text-base text-vangogh-navy">실제 작품 교환 신청이 완료되었습니다!</h4>
                   <p className="text-xs text-vangogh-charcoal/70">
-                    디지털 보관증이 '실물 인도 완료' 상태로 전환되었습니다.
+                    실물 작품 교환권이 &lsquo;실물 인도 완료&rsquo; 상태로 전환·동결되었습니다.
                   </p>
                 </div>
               ) : (
@@ -208,7 +208,7 @@ export const VaultModal: React.FC<VaultModalProps> = ({
                       className="flex-1 py-2.5 rounded-xl bg-vangogh-navy hover:bg-vangogh-blue text-white font-bold flex items-center justify-center gap-1.5"
                     >
                       <Truck className="w-3.5 h-3.5 text-vangogh-gold" />
-                      <span>{isProcessing ? '처리 중...' : '인출 신청 완료'}</span>
+                      <span>{isProcessing ? '처리 중...' : '교환 신청 완료'}</span>
                     </button>
                   </div>
                 </form>
