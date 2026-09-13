@@ -63,42 +63,38 @@ export const CuratorAboutModal: React.FC<CuratorAboutModalProps> = ({ onClose })
 
           <hr className="border-neutral-200" />
 
-          {/* 2. Direction & Perspectives */}
+          {/* 2. Core Pillars / Approach */}
           <section className="space-y-3">
             <span className="text-[11px] font-mono font-bold tracking-widest text-vangogh-gold uppercase block">
-              DIRECTION &amp; PERSPECTIVES
+              CORE PILLARS &amp; APPROACH
             </span>
             <h3 className="text-sm font-bold text-neutral-900">
-              방향성 및 소통 관점
+              예술적 발견과 소셜 임팩트의 양립
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {/* Customer Facing */}
+              {/* Pillar 1: Artistic Discovery */}
               <div className="p-4 bg-white border border-neutral-200 space-y-2">
-                <span className="text-[11px] font-bold text-neutral-900 tracking-wider uppercase block border-b border-neutral-100 pb-1.5">
-                  [고객 대상 웹사이트 문구]
+                <span className="text-[11px] font-bold text-neutral-900 tracking-wider uppercase block border-b border-neutral-100 pb-1.5 flex items-center justify-between">
+                  <span>로컬의 고유한 예술성 발굴</span>
+                  <span className="font-mono text-[10px] text-vangogh-gold font-bold">01</span>
                 </span>
-                <p className="text-xs text-neutral-700 leading-relaxed italic">
-                  &ldquo;중앙화된 주류 아트 씬 너머, 태평양의 섬과 아프리카의 대지, 남미의 골목 등 <strong className="font-semibold text-neutral-900 not-italic">세계 곳곳의 고유한 숨결을 간직한 독립 예술가들</strong>을 찾아갑니다.<br /><br />
-                  지리적 경계를 넘어 그들의 진솔한 세계가 당신의 공간과 만납니다.&rdquo;
+                <p className="text-xs text-neutral-700 leading-relaxed">
+                  중앙화된 주류 아트 씬 너머, 태평양의 섬과 아프리카의 대지, 남미의 골목 등 <strong className="font-semibold text-neutral-900">세계 곳곳의 고유한 숨결을 간직한 독립 예술가들</strong>을 직접 찾아갑니다. 지리적 경계를 넘어 그들의 진솔한 세계가 일상의 공간과 만납니다.
                 </p>
               </div>
 
-              {/* Business / Investor Facing */}
+              {/* Pillar 2: Social Impact Commerce */}
               <div className="p-4 bg-white border border-neutral-200 space-y-2">
-                <span className="text-[11px] font-bold text-neutral-900 tracking-wider uppercase block border-b border-neutral-100 pb-1.5">
-                  [창업 지원사업 / 투자자 대상 BM 설명]
+                <span className="text-[11px] font-bold text-neutral-900 tracking-wider uppercase block border-b border-neutral-100 pb-1.5 flex items-center justify-between">
+                  <span>글로벌 사우스 임팩트 커머스</span>
+                  <span className="font-mono text-[10px] text-vangogh-gold font-bold">02</span>
                 </span>
                 <p className="text-xs text-neutral-700 leading-relaxed">
-                  &ldquo;본 플랫폼은 <strong className="font-semibold text-neutral-900">글로벌 사우스(Global South)의 풍부한 문화예술 자산과 글로벌 소비 시장을 잇는 임팩트 아트 커머스</strong>입니다.<br /><br />
-                  현지의 열악한 물류 및 유통 인프라 한계를 디지털 보증과 경량화된 솔루션으로 극복하여, 소외 지역 창작자의 지속 가능한 경제적 자립을 지원합니다.&rdquo;
+                  <strong className="font-semibold text-neutral-900">글로벌 사우스(Global South)의 풍부한 문화예술 자산과 소비 시장을 잇는 지속 가능한 솔루션</strong>입니다. 현지의 열악한 물류 및 유통 인프라 한계를 디지털 보증과 경량화된 모델로 극복하여, 소외 지역 창작자의 지속 가능한 경제적 자립을 지원합니다.
                 </p>
               </div>
             </div>
-
-            <p className="text-[11px] text-neutral-500 leading-normal pt-1">
-              * &lsquo;개발도상국&rsquo;의 지리적 한계를 지우기보다 B2C 고객에게는 &lsquo;희소하고 강렬한 로컬의 예술성&rsquo;으로 다가가고, 공공·지원사업 관점에서는 &lsquo;글로벌 사우스 소외 계층의 경제적 자립을 돕는 개발협력 혁신 모델&rsquo;로 층위를 나누어 소통합니다.
-            </p>
           </section>
 
           <hr className="border-neutral-200" />
