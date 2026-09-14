@@ -252,15 +252,19 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, a
               </div>
             </div>
 
-            {/* Tamper-proof Authenticated Seal */}
+            {/* Tamper-proof Authenticated Seal with Official Logo */}
             <div className="border-t border-vangogh-gold/20 pt-2 flex items-center justify-between">
               <div className="text-[9px] text-vangogh-canvas/60 leading-tight">
                 <span className="font-semibold text-vangogh-canvas/90">VAN GOGH 21 OFFICIAL SEAL</span>
                 <br />
                 <span className="text-vangogh-gold font-mono">TAMPER-PROOF VERIFIED</span>
               </div>
-              <div className="w-8 h-8 rounded-full border border-vangogh-gold/50 bg-vangogh-navy flex items-center justify-center shadow-sm">
-                <span className="text-[8px] font-mono font-bold text-vangogh-gold tracking-tight">VG21</span>
+              <div className="w-8 h-8 rounded-full overflow-hidden border border-vangogh-gold/60 shadow-sm shrink-0">
+                <img 
+                  src="./logo.jpg" 
+                  alt="반 고흐 21 공식 로고 인장" 
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
