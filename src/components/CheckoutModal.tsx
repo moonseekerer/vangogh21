@@ -86,16 +86,16 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-vangogh-navy/70 backdrop-blur-sm overflow-y-auto">
       <div 
-        className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl border border-vangogh-charcoal/10 overflow-hidden my-auto"
+        className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl border border-vangogh-charcoal/10 overflow-hidden my-auto max-h-[92vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="px-5 py-4 border-b border-vangogh-charcoal/10 flex items-center justify-between bg-vangogh-canvas">
+        <div className="px-5 py-4 border-b border-vangogh-charcoal/10 flex items-center justify-between bg-vangogh-canvas shrink-0">
           <div className="flex items-center gap-2">
-            <span className="font-bold text-base text-vangogh-navy">
+            <span className="font-bold text-sm sm:text-base text-vangogh-navy">
               {isOriginal ? '원작 1:1 독점 소장 결제' : '공식 아트 프린팅 실물 주문'}
             </span>
-            <span className="text-[11px] px-2 py-0.5 rounded bg-vangogh-stone text-vangogh-navy font-semibold">심사 시연 모드</span>
+            <span className="text-[10px] sm:text-[11px] px-2 py-0.5 rounded bg-vangogh-stone text-vangogh-navy font-semibold shrink-0">심사 시연 모드</span>
           </div>
           <button 
             onClick={onClose}
@@ -106,7 +106,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
         </div>
 
         {/* Form Body */}
-        <form onSubmit={handleSubmit} className="p-5 space-y-5">
+        <form onSubmit={handleSubmit} className="p-4 sm:p-5 space-y-4 sm:space-y-5 overflow-y-auto flex-1">
           
           {/* Item Summary */}
           <div className="flex gap-3 p-3 bg-vangogh-stone/40 rounded-xl border border-vangogh-charcoal/5">
@@ -204,23 +204,23 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 {isOriginal ? '공정무역 정산 투명성 공시 (피지 현지 직접 전달)' : '아트 프린팅 저작권료 정산 공시'}
               </span>
             </div>
-            <div className="flex justify-between text-vangogh-charcoal/70">
+            <div className="flex justify-between items-start gap-2 text-vangogh-charcoal/70">
               <span>{isOriginal ? '피지 현지 작가 직접 정산 (60%)' : '피지 원작 작가 창작 로열티 (순이익 50% 분배)'}</span>
-              <span className="font-medium text-vangogh-navy">{artistAmount.toLocaleString()}원</span>
+              <span className="font-medium text-vangogh-navy shrink-0">{artistAmount.toLocaleString()}원</span>
             </div>
             {!isOriginal && (
-              <div className="flex justify-between text-vangogh-charcoal/70">
+              <div className="flex justify-between items-start gap-2 text-vangogh-charcoal/70">
                 <span>캔버스·원목 액자 제작 및 배송 실비 (35%)</span>
-                <span className="font-medium">{productionAmount.toLocaleString()}원</span>
+                <span className="font-medium shrink-0">{productionAmount.toLocaleString()}원</span>
               </div>
             )}
-            <div className="flex justify-between text-vangogh-charcoal/70">
+            <div className="flex justify-between items-start gap-2 text-vangogh-charcoal/70">
               <span>{isOriginal ? '피지 청년 미술 지원기금 (10%)' : '피지 로컬 창작 기금 (5%)'}</span>
-              <span className="font-medium">{localFundAmount.toLocaleString()}원</span>
+              <span className="font-medium shrink-0">{localFundAmount.toLocaleString()}원</span>
             </div>
-            <div className="flex justify-between text-vangogh-charcoal/70">
+            <div className="flex justify-between items-start gap-2 text-vangogh-charcoal/70">
               <span>{isOriginal ? '플랫폼 운영 및 1년 안심 보관 (30%)' : '플랫폼 운영 및 품질 검수 (30%)'}</span>
-              <span className="font-medium">{platformAmount.toLocaleString()}원</span>
+              <span className="font-medium shrink-0">{platformAmount.toLocaleString()}원</span>
             </div>
           </div>
 

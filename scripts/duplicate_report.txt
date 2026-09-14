@@ -1,0 +1,90 @@
+=== 1. 기본 수량 점검 ===
+현재 등록된 총 레코드 수: 735점
+고유 위키데이터 ID 수: 735개
+
+=== 2. 이미지 URL 중복 및 누락 점검 ===
+이미지 URL 있음: 721점
+이미지 URL 누락: 14점
+동일한 이미지 URL을 공유하는 중복 레코드: 18건 (총 36개 항목)
+
+[중복 이미지 공유: 2개]
+  - ID: Q157541 | 제목: Sunflowers | 연도: 1888 | 소장:  | F: 
+  - ID: Q21948567 | 제목: Sunflowers | 연도: 1888 | 소장: National Gallery | F: 28
+
+[중복 이미지 공유: 2개]
+  - ID: Q602980 | 제목: L'Arlésienne | 연도: None | 소장:  | F: 
+  - ID: Q26221124 | 제목: L'Arlésienne | 연도: 1888 | 소장: Musée d'Orsay | F: 82
+
+[중복 이미지 공유: 2개]
+  - ID: Q724377 | 제목: Bedroom in Arles | 연도: 1888 | 소장:  | F: 
+  - ID: Q18713070 | 제목: Bedroom in Arles | 연도: 1888 | 소장: Van Gogh Museum | F: F482
+
+[중복 이미지 공유: 2개]
+  - ID: Q1117805 | 제목: Postman Joseph Roulin | 연도: 1888 | 소장: Museum of Fine Arts Boston | F: 26
+  - ID: Q3399534 | 제목: The Roulin Family | 연도: 1888 | 소장: Museum of Fine Arts Boston | F: 
+
+[중복 이미지 공유: 2개]
+  - ID: Q2271805 | 제목: Wheat Field with Cypresses | 연도: 1889 | 소장:  | F: 
+  - ID: Q26221169 | 제목: A Wheatfield, with Cypresses | 연도: 1889 | 소장: National Gallery | F: F615
+
+[중복 이미지 공유: 2개]
+  - ID: Q4685611 | 제목: Adrianus Jacobus Zuyderland | 연도: None | 소장:  | F: 
+  - ID: Q7232324 | 제목: Portrait of a Man in a Top Hat | 연도: 1882 | 소장: Worcester Art Museum | F: F954
+
+[중복 이미지 공유: 2개]
+  - ID: Q4807462 | 제목: Asnières | 연도: 1887 | 소장: Art Institute of Chicago | F: 
+  - ID: Q7446844 | 제목: Seine | 연도: 1887 | 소장: Art Institute of Chicago | F: 
+
+[중복 이미지 공유: 2개]
+  - ID: Q3694590 | 제목: Hospital in Arles | 연도: 1889 | 소장: Museum collection Am Römerholz | F: 
+  - ID: Q26221134 | 제목: The Courtyard of the Hospital at Arles | 연도: 1889 | 소장: Museum collection Am Römerholz | F: F519
+
+[중복 이미지 공유: 2개]
+  - ID: Q3703013 | 제목: Hôpital Saint-Paul à Saint-Rémy-de-Provence | 연도: 1889 | 소장: Musée d'Orsay | F: F653
+  - ID: Q7400771 | 제목: Saint-Paul Asylum, Saint-Rémy | 연도: 1889 | 소장:  | F: 
+
+[중복 이미지 공유: 2개]
+  - ID: Q3955068 | 제목: The Sower | 연도: 1888 | 소장: Hammer Museum | F: 
+  - ID: Q24020423 | 제목: The Sower (Sower at Sunset) | 연도: 1888 | 소장: Kröller-Müller Museum | F: F422
+
+[중복 이미지 공유: 2개]
+  - ID: Q11695203 | 제목: Q11695203 | 연도: None | 소장:  | F: 
+  - ID: Q7837720 | 제목: Trees and Undergrowth | 연도: None | 소장:  | F: 
+
+[중복 이미지 공유: 2개]
+  - ID: Q11751767 | 제목: Flower-garden | 연도: 1888 | 소장:  | F: 
+  - ID: Q26220268 | 제목: Flowering Garden | 연도: 1888 | 소장: Collection of Max Emden | F: F430
+
+[중복 이미지 공유: 2개]
+  - ID: Q11691842 | 제목: Q11691842 | 연도: None | 소장:  | F: 
+  - ID: Q24024027 | 제목: Cypresses with two figures | 연도: 1889 | 소장: Kröller-Müller Museum | F: F620
+
+[중복 이미지 공유: 2개]
+  - ID: Q19829089 | 제목: Houses at Auvers | 연도: 1890 | 소장: Toledo Museum of Art | F: F759
+  - ID: Q9209961 | 제목: Houses at Auvers | 연도: None | 소장:  | F: 
+
+[중복 이미지 공유: 2개]
+  - ID: Q26221254 | 제목: Young Scheveningen Woman Seatded: Facing Left | 연도: 1881 | 소장: P. and N. de Boer Foundation | F: F869
+  - ID: Q7158404 | 제목: Peasant Character Studies | 연도: 1881 | 소장:  | F: 
+
+[중복 이미지 공유: 2개]
+  - ID: Q7087213 | 제목: Olive Trees | 연도: 1889 | 소장:  | F: 
+  - ID: Q9212498 | 제목: The Olive Trees | 연도: 1889 | 소장: Museum of Modern Art | F: F712
+
+[중복 이미지 공유: 2개]
+  - ID: Q7774378 | 제목: The Wheat Field | 연도: 1889 | 소장:  | F: 
+  - ID: Q24022751 | 제목: Enclosed Wheat Field with Rising Sun | 연도: 1889 | 소장: Kröller-Müller Museum | F: F720
+
+[중복 이미지 공유: 2개]
+  - ID: Q7973327 | 제목: Water Mill at Gennep | 연도: 1884 | 소장: Thyssen-Bornemisza Museum | F: 
+  - ID: Q21712190 | 제목: Watermill at Gennep | 연도: 1884 | 소장: Thyssen-Bornemisza Museum | F: F125
+
+=== 3. 전작(약 2,100점) 대비 누락 분석 ===
+현재 데이터셋 유화(추정): 약 735점 (전체 유화 약 860~900점 중 약 80~85% 수록)
+현재 데이터셋 소묘/스케치: 약 0점 (전체 소묘 약 1,100~1,200점 중 대다수 누락)
+사유: 위키데이터에서 'painting by Vincent van Gogh'(Q3305213) 위주로 쿼리되어, 'drawing'(Q93184) 및 미수록 유화 약 150점이 제외되어 있었음.
+
+=== 4. 결측치 통계 ===
+연도 결측: 25건
+소장처 결측(개인소장 등): 191건
+이미지 결측: 14건

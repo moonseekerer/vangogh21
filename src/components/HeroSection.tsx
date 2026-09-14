@@ -108,8 +108,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick, onOpen
         </div>
 
         {/* 2. Top Interactive Step Tracker (Editorial Museum Index) */}
-        <div className="relative z-20 max-w-6xl mx-auto w-full px-4 sm:px-6 pt-20 sm:pt-24 flex items-center justify-between">
-          <nav className="flex items-center gap-3 sm:gap-6 text-xs font-mono tracking-wider">
+        <div className="relative z-20 max-w-6xl mx-auto w-full px-4 sm:px-6 pt-16 sm:pt-20 md:pt-24 flex items-center justify-between">
+          <nav className="flex items-center gap-2.5 sm:gap-6 text-xs font-mono tracking-wider">
             <button
               onClick={() => scrollToStep(0)}
               className={`pb-1 transition-colors cursor-pointer ${
@@ -149,30 +149,30 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick, onOpen
         </div>
 
         {/* 3. Stage Contents with Smooth Scene Cross-fade Transitions */}
-        <div className="relative z-10 max-w-5xl mx-auto w-full px-4 sm:px-6 my-auto">
+        <div className="relative z-10 max-w-5xl mx-auto w-full px-4 sm:px-6 my-auto py-4">
           
           {/* Stage 0: Main Brand Vision Headline */}
           <div 
-            className={`transition-all duration-700 ease-out space-y-6 ${
+            className={`transition-all duration-700 ease-out space-y-3.5 sm:space-y-6 ${
               activeStage === 0 
                 ? 'opacity-100 translate-y-0 pointer-events-auto' 
                 : 'opacity-0 -translate-y-8 pointer-events-none absolute inset-x-0'
             }`}
           >
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.12]">
+            <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white leading-[1.15]">
               21세기 <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-400">반 고흐</span>를 찾아서
             </h1>
             
-            <div className="space-y-3 max-w-2xl text-white/85 leading-relaxed font-normal">
-              <p className="text-base sm:text-lg">
+            <div className="space-y-2 sm:space-y-3 max-w-2xl text-white/85 leading-relaxed font-normal">
+              <p className="text-xs sm:text-base md:text-lg leading-relaxed">
                 생전에 단 한 점의 그림만을 판매한 채 가난과 고독 속에서 세상을 떠났던 빈센트 반 고흐. 130여 년이 흐른 오늘날에도 세상 곳곳에는 묵묵히 붓을 들고 자신만의 세계를 그리지만, 지리적 경계와 인프라의 부재로, 국경 너머의 따뜻한 시선과 닿지 못하고 있는 아티스트들이 있습니다.
               </p>
-              <p className="text-sm sm:text-base text-white/75">
+              <p className="text-xs sm:text-sm md:text-base text-white/75 leading-relaxed">
                 <strong className="text-white font-semibold">반 고흐 21</strong>은 예술적 재능이 국경과 물류의 장벽에 갇히지 않도록 새로운 통로를 엽니다. 지금, 세상이 미처 발견하지 못한 21세기의 고흐를 만나러 떠납니다.
               </p>
             </div>
 
-            <div className="pt-2">
+            <div className="pt-1">
               <button 
                 onClick={onOpenAbout}
                 className="group inline-flex items-center gap-2 text-xs sm:text-sm text-white/70 hover:text-vangogh-gold transition-all font-medium cursor-pointer"
@@ -191,21 +191,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick, onOpen
             return (
               <div 
                 key={s.step}
-                className={`transition-all duration-700 ease-out max-w-3xl space-y-4 ${
+                className={`transition-all duration-700 ease-out max-w-3xl space-y-3 sm:space-y-4 ${
                   isCurrent 
                     ? 'opacity-100 translate-y-0 pointer-events-auto' 
                     : 'opacity-0 translate-y-8 pointer-events-none absolute inset-x-0'
                 }`}
               >
-                <div className="text-xs sm:text-sm font-mono tracking-widest text-vangogh-gold font-semibold uppercase">
+                <div className="text-[11px] sm:text-xs font-mono tracking-widest text-vangogh-gold font-semibold uppercase">
                   {s.step} &nbsp;/&nbsp; {s.category}
                 </div>
 
-                <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
+                <h2 className="text-2xl sm:text-4xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
                   {s.title}
                 </h2>
 
-                <div className="space-y-2.5 text-sm sm:text-base text-white/80 leading-relaxed font-normal max-w-2xl">
+                <div className="space-y-2 sm:space-y-2.5 text-xs sm:text-base text-white/80 leading-relaxed font-normal max-w-2xl">
                   {s.paragraphs.map((p, pIdx) => (
                     <p key={pIdx}>{p}</p>
                   ))}
@@ -217,7 +217,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick, onOpen
         </div>
 
         {/* 4. Bottom Scroll Transition Indicator */}
-        <div className="relative z-30 flex flex-col items-center justify-center pb-8 sm:pb-10">
+        <div className="relative z-30 flex flex-col items-center justify-center pb-5 sm:pb-8 md:pb-10">
           <button 
             onClick={() => {
               if (activeStage < 3) {

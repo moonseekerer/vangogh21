@@ -293,38 +293,38 @@ export const ArtworkDetailModal: React.FC<ArtworkDetailModalProps> = ({ artwork,
           </div>
 
           {/* Modal Footer */}
-          <div className="p-4 sm:p-6 border-t border-vangogh-charcoal/10 bg-vangogh-canvas flex items-center justify-between">
-            <div>
+          <div className="p-4 sm:p-6 border-t border-vangogh-charcoal/10 bg-vangogh-canvas flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+            <div className="flex items-center justify-between sm:block">
               <span className="text-xs text-vangogh-charcoal/60 block font-medium">
                 {selectedType === 'original_vault' ? '원작 1:1 독점 소장가' : '아트 프린팅 실물 주문가'}
               </span>
-              <span className="text-xl font-bold text-vangogh-navy">
+              <span className="text-xl sm:text-2xl font-bold text-vangogh-navy">
                 {currentPrice.toLocaleString()}원
               </span>
             </div>
 
-            <div className="flex gap-2">
+            <div className="flex items-center gap-2 w-full sm:w-auto">
               <button
                 onClick={onClose}
-                className="px-4 py-2.5 rounded-xl text-sm font-semibold text-vangogh-charcoal/70 hover:bg-vangogh-stone transition-colors"
+                className="px-3.5 sm:px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-vangogh-charcoal/70 hover:bg-vangogh-stone transition-colors shrink-0"
               >
                 닫기
               </button>
               {isOriginalSold && selectedType === 'original_vault' ? (
                 <button
                   disabled
-                  className="px-6 py-2.5 rounded-xl text-sm font-bold bg-vangogh-charcoal/20 text-vangogh-charcoal/50 cursor-not-allowed"
+                  className="flex-1 sm:flex-initial px-4 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-vangogh-charcoal/20 text-vangogh-charcoal/50 cursor-not-allowed text-center"
                 >
                   원작 소장 마감
                 </button>
               ) : (
                 <button
                   onClick={() => onSelectOption(artwork, selectedType, currentPrice)}
-                  className="px-6 py-2.5 rounded-xl text-sm font-bold bg-vangogh-navy hover:bg-vangogh-blue text-vangogh-canvas shadow-md transition-all flex items-center gap-2"
+                  className="flex-1 sm:flex-initial px-4 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-vangogh-navy hover:bg-vangogh-blue text-vangogh-canvas shadow-md transition-all flex items-center justify-center gap-2 text-center"
                 >
                   <span>
                     {selectedType === 'original_vault' 
-                      ? '원작 독점 소장권 결제 및 보증서 발급' 
+                      ? '원작 소장권 결제 및 보증서 발급' 
                       : '아트 프린팅 실물 액자 주문하기'
                     }
                   </span>

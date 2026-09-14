@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { ArtworkCard } from './components/ArtworkCard';
@@ -11,7 +11,7 @@ import { SalonModal } from './components/SalonModal';
 import { JudgeGuideBanner } from './components/JudgeGuideBanner';
 import { MOCK_ARTWORKS } from './data/mockArtworks';
 import { Artwork, OwnershipCertificate } from './types';
-import { Sparkles, ShieldCheck, X } from 'lucide-react';
+import { Sparkles, ShieldCheck, X, ArrowRight } from 'lucide-react';
 
 const STORAGE_KEY = 'vangogh21_certificates_v2';
 const ARTWORKS_STORAGE_KEY = 'vangogh21_artworks_v2';
@@ -93,6 +93,79 @@ export const App: React.FC = () => {
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [isSalonOpen, setIsSalonOpen] = useState(false);
   const [newlyMintedCert, setNewlyMintedCert] = useState<OwnershipCertificate | null>(null);
+
+  // Secret Easter Egg Trigger (Keyboard typing OR Mobile 3-tap on logo)
+  const [secretPromptOpen, setSecretPromptOpen] = useState<boolean>(false);
+  const [secretTransitioning, setSecretTransitioning] = useState<boolean>(false);
+  const [matchedSecretCode, setMatchedSecretCode] = useState<string>('');
+  const [transitionProgress, setTransitionProgress] = useState<number>(0);
+  const keyBufferRef = useRef<string>('');
+
+  const triggerSecretPrompt = (code: string) => {
+    if (secretPromptOpen || secretTransitioning) return;
+    setMatchedSecretCode(code);
+    setSecretPromptOpen(true);
+  };
+
+  const handleConfirmWarp = () => {
+    setSecretPromptOpen(false);
+    setSecretTransitioning(true);
+  };
+
+  useEffect(() => {
+    if (secretTransitioning) {
+      const pTimer = setTimeout(() => setTransitionProgress(100), 50);
+      const navTimer = setTimeout(() => {
+        window.location.href = './archive.html';
+      }, 950);
+      return () => {
+        clearTimeout(pTimer);
+        clearTimeout(navTimer);
+      };
+    } else {
+      setTransitionProgress(0);
+    }
+  }, [secretTransitioning]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // If secret prompt modal is open: Escape closes, Enter confirms
+      if (secretPromptOpen) {
+        if (e.key === 'Escape') {
+          setSecretPromptOpen(false);
+          return;
+        }
+        if (e.key === 'Enter') {
+          handleConfirmWarp();
+          return;
+        }
+      }
+
+      const target = e.target as HTMLElement;
+      if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) {
+        return;
+      }
+
+      if (e.key && e.key.length === 1) {
+        keyBufferRef.current = (keyBufferRef.current + e.key.toLowerCase()).slice(-10);
+
+        if (
+          keyBufferRef.current.endsWith('gogh') ||
+          keyBufferRef.current.endsWith('1890') ||
+          keyBufferRef.current.endsWith('vangogh')
+        ) {
+          let code = 'GOGH';
+          if (keyBufferRef.current.endsWith('1890')) code = '1890';
+          else if (keyBufferRef.current.endsWith('vangogh')) code = 'VAN GOGH';
+
+          triggerSecretPrompt(code);
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [secretPromptOpen, secretTransitioning]);
 
   // Sync artworks to LocalStorage
   useEffect(() => {
@@ -229,6 +302,7 @@ export const App: React.FC = () => {
         onOpenAbout={() => setIsAboutOpen(true)}
         onOpenSalon={() => setIsSalonOpen(true)}
         vaultCount={certificates.length}
+        onSecretTrigger={() => triggerSecretPrompt('3-TAP')}
       />
 
       {/* Main Hero */}
@@ -492,6 +566,84 @@ export const App: React.FC = () => {
         onOpenSalon={() => setIsSalonOpen(true)}
         onResetDemo={handleResetDemo}
       />
+      {/* Secret Easter Egg Confirmation Modal */}
+      {secretPromptOpen && (
+        <div className="fixed inset-0 z-[9999] bg-stone-950/80 backdrop-blur-md flex items-center justify-center p-4">
+          <div className="relative bg-[#0b101d] border border-stone-700/80 rounded-xl p-6 sm:p-8 max-w-md w-full shadow-2xl text-center text-stone-100 overflow-hidden animate-fade-in">
+            {/* Top gold accent line */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-[2px] bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
+
+            {/* Emblem */}
+            <div className="w-12 h-12 rounded-full border border-amber-500/40 bg-stone-900/90 mx-auto mb-3 flex items-center justify-center text-amber-300 font-serif font-bold text-xl shadow-inner">
+              V
+            </div>
+
+            <div className="inline-block px-2.5 py-0.5 rounded text-[11px] font-mono text-amber-400 bg-amber-950/50 border border-amber-800/60 mb-2.5">
+              시크릿 코드 감지: {matchedSecretCode}
+            </div>
+
+            <h3 className="text-xl font-bold font-serif text-stone-100 mb-2 tracking-tight">
+              빈센트 반 고흐 전작 아카이브
+            </h3>
+
+            <p className="text-xs sm:text-sm text-stone-300 leading-relaxed mb-6 font-sans">
+              현존 유화 703점 전수 도록, 10개년 창작 여정 지리 아카이브 및 테오와의 서간집 원문이 보존된 전용 아카이브 공간으로 이동하시겠습니까?
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3">
+              <button
+                type="button"
+                onClick={() => setSecretPromptOpen(false)}
+                className="flex-1 px-4 py-2.5 rounded-lg text-xs sm:text-sm font-medium border border-stone-700 text-stone-300 hover:text-white hover:bg-stone-800/60 transition-colors order-2 sm:order-1"
+              >
+                현재 페이지에 머무르기
+              </button>
+              <button
+                type="button"
+                onClick={handleConfirmWarp}
+                className="flex-1 px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-amber-500 hover:bg-amber-400 text-stone-950 transition-colors shadow-sm order-1 sm:order-2 flex items-center justify-center gap-1.5"
+              >
+                <span>아카이브 입장</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Sleek Cinematic Transition Screen */}
+      {secretTransitioning && (
+        <div className="fixed inset-0 z-[10000] bg-[#05070d] flex flex-col items-center justify-center p-6 text-center text-stone-100 select-none overflow-hidden">
+          {/* Radial ambient glow */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(217,119,6,0.12)_0%,_rgba(5,7,13,0.95)_70%)] pointer-events-none" />
+
+          {/* Central Monogram */}
+          <div className="relative mb-6">
+            <div className="w-20 h-20 rounded-full border border-amber-500/40 flex items-center justify-center bg-stone-900/60 backdrop-blur shadow-[0_0_30px_rgba(245,158,11,0.15)] animate-pulse">
+              <span className="font-serif font-bold text-3xl text-amber-300">
+                V
+              </span>
+            </div>
+          </div>
+
+          <div className="relative z-10 space-y-2 max-w-sm">
+            <h3 className="text-lg sm:text-xl font-bold font-serif text-white tracking-tight">
+              빈센트 반 고흐 전작 아카이브
+            </h3>
+            <p className="text-xs text-stone-400 font-sans">
+              현존 유화 703점 전수 도록 및 지리 아카이브 연결 중
+            </p>
+
+            {/* Hairline Progress Bar */}
+            <div className="w-48 sm:w-56 h-[2px] bg-stone-800 rounded-full overflow-hidden mx-auto mt-5">
+              <div
+                className="h-full bg-gradient-to-r from-amber-600 via-amber-400 to-amber-200 transition-all duration-900 ease-out"
+                style={{ width: `${transitionProgress}%` }}
+              />
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   );

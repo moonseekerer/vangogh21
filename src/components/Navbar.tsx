@@ -1,15 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { Compass, BookOpen, Layers, MessageSquareQuote } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Compass, BookOpen, Layers, MessageSquareQuote, Menu, X } from 'lucide-react';
 
 interface NavbarProps {
   onOpenVault: () => void;
   onOpenAbout: () => void;
   onOpenSalon: () => void;
   vaultCount: number;
+  onSecretTrigger?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenVault, onOpenAbout, onOpenSalon, vaultCount }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenVault, onOpenAbout, onOpenSalon, vaultCount, onSecretTrigger }) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const tapCountRef = useRef<number>(0);
+  const lastTapTimeRef = useRef<number>(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,6 +23,25 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenVault, onOpenAbout, onOpen
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleLogoClick = () => {
+    const now = Date.now();
+    // 550ms within last tap
+    if (now - lastTapTimeRef.current < 550) {
+      tapCountRef.current += 1;
+    } else {
+      tapCountRef.current = 1;
+    }
+    lastTapTimeRef.current = now;
+
+    if (tapCountRef.current >= 3) {
+      tapCountRef.current = 0;
+      onSecretTrigger?.();
+      return;
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <header 
@@ -32,8 +55,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenVault, onOpenAbout, onOpen
         
         {/* Brand Logo & Name */}
         <div 
-          className="flex items-center gap-2 sm:gap-3 cursor-pointer shrink-0 min-w-0" 
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="flex items-center gap-2 sm:gap-3 cursor-pointer shrink-0 min-w-0 select-none" 
+          onClick={handleLogoClick}
         >
           <img 
             src="./logo.jpg" 
@@ -73,15 +96,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenVault, onOpenAbout, onOpen
 
           <button
             onClick={onOpenSalon}
-            className={`flex items-center gap-1 sm:gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-2 text-xs sm:text-sm font-medium rounded-lg transition-colors shrink-0 ${
+            className={`hidden sm:flex items-center gap-1.5 px-3 py-2 text-xs sm:text-sm font-medium rounded-lg transition-colors shrink-0 ${
               isScrolled 
                 ? 'text-vangogh-charcoal/80 hover:text-vangogh-navy hover:bg-vangogh-stone/60' 
                 : 'text-white/80 hover:text-white hover:bg-white/10'
             }`}
             title="소장자 살롱"
           >
-            <MessageSquareQuote className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-vangogh-gold shrink-0" />
-            <span><span className="hidden sm:inline">소장자 </span>살롱</span>
+            <MessageSquareQuote className="w-4 h-4 text-vangogh-gold shrink-0" />
+            <span>소장자 살롱</span>
           </button>
 
           <button
@@ -114,9 +137,94 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenVault, onOpenAbout, onOpen
               </span>
             )}
           </button>
-        </nav>
 
+          {/* Mobile hamburger button */}
+          <button
+            type="button"
+            onClick={() => setIsMobileNavOpen((prev) => !prev)}
+            className={`sm:hidden p-1.5 rounded-lg border transition-colors ${
+              isScrolled
+                ? 'border-vangogh-charcoal/20 text-vangogh-charcoal hover:bg-vangogh-stone/60'
+                : 'border-white/20 text-white hover:bg-white/10'
+            }`}
+            aria-label={isMobileNavOpen ? '메뉴 닫기' : '메뉴 열기'}
+            aria-expanded={isMobileNavOpen}
+          >
+            {isMobileNavOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </nav>
       </div>
+
+      {/* Mobile Nav Dropdown */}
+      {isMobileNavOpen && (
+        <div
+          className={`sm:hidden border-t px-4 py-3 space-y-1 shadow-xl transition-colors ${
+            isScrolled
+              ? 'bg-vangogh-canvas/98 border-vangogh-charcoal/10 text-vangogh-charcoal'
+              : 'bg-[#060B18]/98 border-white/10 text-white'
+          }`}
+        >
+          <button
+            onClick={() => {
+              const el = document.getElementById('season-artworks');
+              el?.scrollIntoView({ behavior: 'smooth' });
+              setIsMobileNavOpen(false);
+            }}
+            className={`w-full flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm transition-colors text-left ${
+              isScrolled ? 'hover:bg-vangogh-stone/60' : 'hover:bg-white/10'
+            }`}
+          >
+            <Compass className="w-4 h-4 text-vangogh-gold shrink-0" />
+            <span>시즌 1 : 피지전</span>
+          </button>
+
+          <button
+            onClick={() => {
+              onOpenSalon();
+              setIsMobileNavOpen(false);
+            }}
+            className={`w-full flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm transition-colors text-left ${
+              isScrolled ? 'hover:bg-vangogh-stone/60' : 'hover:bg-white/10'
+            }`}
+          >
+            <MessageSquareQuote className="w-4 h-4 text-vangogh-gold shrink-0" />
+            <span>소장자 살롱</span>
+          </button>
+
+          <button
+            onClick={() => {
+              onOpenAbout();
+              setIsMobileNavOpen(false);
+            }}
+            className={`w-full flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm transition-colors text-left ${
+              isScrolled ? 'hover:bg-vangogh-stone/60' : 'hover:bg-white/10'
+            }`}
+          >
+            <BookOpen className="w-4 h-4 text-vangogh-gold shrink-0" />
+            <span>소개</span>
+          </button>
+
+          <button
+            onClick={() => {
+              onOpenVault();
+              setIsMobileNavOpen(false);
+            }}
+            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm transition-colors text-left font-medium ${
+              isScrolled ? 'hover:bg-vangogh-stone/60 text-vangogh-navy' : 'hover:bg-white/10 text-amber-300'
+            }`}
+          >
+            <div className="flex items-center gap-2.5">
+              <Layers className="w-4 h-4 text-vangogh-gold shrink-0" />
+              <span>보관함</span>
+            </div>
+            {vaultCount > 0 && (
+              <span className="px-2 py-0.5 rounded text-xs bg-vangogh-gold text-vangogh-navy font-bold font-mono">
+                {vaultCount}
+              </span>
+            )}
+          </button>
+        </div>
+      )}
     </header>
   );
 };
