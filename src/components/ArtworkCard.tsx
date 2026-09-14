@@ -68,8 +68,8 @@ export const ArtworkCard: React.FC<ArtworkCardProps> = ({ artwork, onSelect }) =
       </div>
 
       {/* Footer Pricing & Status */}
-      <div className="px-5 pb-5 pt-3 border-t border-vangogh-charcoal/5 flex items-center justify-between">
-        <div>
+      <div className="px-5 pb-5 pt-3 border-t border-vangogh-charcoal/5 flex items-end justify-between gap-2">
+        <div className="min-w-0">
           {isOriginalSold ? (
             <div className="space-y-0.5">
               <span className="text-[10px] text-vangogh-charcoal/50 block font-medium">
@@ -96,8 +96,11 @@ export const ArtworkCard: React.FC<ArtworkCardProps> = ({ artwork, onSelect }) =
           )}
         </div>
 
-        <button className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-vangogh-stone group-hover:bg-vangogh-navy group-hover:text-vangogh-canvas text-vangogh-navy transition-colors shrink-0">
-          소장/주문
+        <button 
+          type="button"
+          className="px-3.5 py-2 rounded-xl text-xs font-bold border border-vangogh-charcoal/15 bg-vangogh-stone/80 group-hover:bg-vangogh-navy group-hover:border-vangogh-navy group-hover:text-vangogh-canvas text-vangogh-navy transition-all shrink-0 whitespace-nowrap shadow-xs flex items-center justify-center leading-none"
+        >
+          소장 / 주문
         </button>
       </div>
     </div>
