@@ -289,7 +289,7 @@ export const App: React.FC = () => {
               <span>피지 시즌 1 일괄 단체 수거 및 안심 보관 안내</span>
             </h3>
             <p className="text-xs text-vangogh-charcoal/70 leading-relaxed max-w-2xl">
-              시즌 1 종료 직후 펀딩 완료된 원화는 현지 거점에서 정기 항공 특송으로 국내 일괄 반입됩니다. 
+              시즌 1 종료 직후 소장 및 주문이 완료된 원화는 현지 거점에서 정기 항공 특송으로 국내 일괄 반입됩니다. 
               소장자는 원할 때 언제든 실제 작품 교환을 신청하거나 1년간 무상 보관 혜택을 이용할 수 있습니다.
             </p>
           </div>

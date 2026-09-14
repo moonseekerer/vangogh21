@@ -157,36 +157,46 @@ export const CuratorAboutModal: React.FC<CuratorAboutModalProps> = ({ onClose })
               SOLUTION &amp; LOGISTICS MECHANISM
             </span>
             <h3 className="text-sm font-bold text-neutral-900">
-              디지털 소유 보증권과 실제 작품 교환권 분리 메커니즘
+              1:1 실물 원작 보증과 실제 작품 교환권 분리 메커니즘
             </h3>
 
             <div className="p-4 bg-white border border-neutral-200 space-y-3 text-xs text-neutral-700 leading-relaxed">
               <div className="space-y-1">
                 <h4 className="font-bold text-neutral-900 text-xs flex items-center gap-1.5">
                   <ShieldCheck className="w-3.5 h-3.5 text-vangogh-gold" />
-                  <span>1. 디지털 소유 보증권과 실제 작품 교환권의 분리</span>
+                  <span>1. 1:1 실물 원작 독점 소장 (조각투자 배제)</span>
                 </h4>
                 <p className="text-neutral-600 pl-5">
-                  원작의 1:1 독점 소장 권리를 확정한 뒤, 현지 보관소에서 1년간 무상 보관을 지원합니다. 소장자는 디지털 소유 보증권을 통해 소장 자격을 즉시 증명받으며, 원하는 시점에 언제든 <strong className="text-neutral-800">&lsquo;실제 작품 교환권&rsquo;</strong>을 행사하여 실물 원화를 안전하게 국내로 수령할 수 있습니다.
+                  반 고흐 21은 지분 쪼개기나 조각투자 방식의 투기적 금융 모델을 일절 배제합니다. 1점의 원화는 오직 1인의 컬렉터에게만 1:1로 독점 양도되며, 발급된 디지털 보증서는 실물 원화에 1:1로 영구 귀속되는 디지털 진품 보증서 역할을 합니다.
                 </p>
               </div>
 
               <div className="space-y-1 pt-1 border-t border-neutral-100">
                 <h4 className="font-bold text-neutral-900 text-xs flex items-center gap-1.5">
                   <Compass className="w-3.5 h-3.5 text-vangogh-navy" />
+                  <span>2. 디지털 소유 보증권과 실제 작품 교환권의 분리</span>
+                </h4>
+                <p className="text-neutral-600 pl-5">
+                  원작 구매 즉시 무리한 개별 국제 배송을 진행하지 않고, 현지 및 국내 거점 볼트에서 1년간 무상 안전 보관을 지원합니다. 소장자는 디지털 보증서를 통해 1호 소장 자격을 즉시 증명받으며, 원하는 시점에 언제든 <strong className="text-neutral-800">&lsquo;실제 작품 교환권&rsquo;</strong>을 행사하여 실물 원화를 안전하게 수령할 수 있습니다.
+                </p>
+              </div>
+
+              <div className="space-y-1 pt-1 border-t border-neutral-100">
+                <h4 className="font-bold text-neutral-900 text-xs flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-vangogh-gold ml-1 mr-1"></span>
                   <span>소유권 이중 거래 방지 메커니즘</span>
                 </h4>
                 <p className="text-neutral-600 pl-5">
-                  실제 작품 교환을 신청하면 기존 실물 작품 교환권은 자동으로 <strong className="text-neutral-800">&lsquo;실물 인도 완료&rsquo;</strong> 상태로 전환 및 동결됩니다. 이를 통해 동일한 원화에 대한 중복 교환, 이중 양도 및 유통 위조를 원천 방지합니다.
+                  실제 작품 교환을 신청하면 기존의 실물 작품 교환권은 즉시 <strong className="text-neutral-800">&lsquo;실물 인도 완료&rsquo;</strong> 상태로 전환되며 교환 권한이 영구 소각됩니다. 이후 해당 카드는 실물 원화와 평생 함께 귀속되는 '디지털 진품 보증서'로만 동결되어 이중 양도 및 유통 위조를 원천 차단합니다.
                 </p>
               </div>
 
               <div className="space-y-1 pt-1 border-t border-neutral-100">
                 <h4 className="font-bold text-neutral-900 text-xs">
-                  2. 시즌제 정기 일괄 수거 물류
+                  3. 시즌제 정기 일괄 수거 물류
                 </h4>
                 <p className="text-neutral-600">
-                  건별 개별 항공 특송 대신 시즌 종료 후 정기 일괄 수거 방식을 채택하여 고가의 국제 항공 운송 비용을 90% 이상 절감하고 운송 과정에서의 충격 및 파손 위험을 최소화합니다.
+                  산발적인 개별 항공 특송 대신 국가별 시즌 종료 후 정기 일괄 수거 방식을 채택하여 고가의 국제 물류비를 대폭 절감하고 장거리 운송에 따른 파손 리스크를 최소화합니다.
                 </p>
               </div>
             </div>
@@ -194,16 +204,16 @@ export const CuratorAboutModal: React.FC<CuratorAboutModalProps> = ({ onClose })
 
           <hr className="border-neutral-200" />
 
-          {/* 5. Transparent Settlement Table */}
+          {/* 5. Sustainable Business Model & Transparency */}
           <section className="space-y-3">
             <span className="text-[11px] font-mono font-bold tracking-widest text-vangogh-gold uppercase block">
-              TRANSPARENCY &amp; SETTLEMENT
+              BUSINESS MODEL &amp; TRANSPARENCY
             </span>
             <h3 className="text-sm font-bold text-neutral-900">
-              투명한 수익 배분 기준 (운영 예시)
+              플랫폼 4대 수익 구조 및 투명한 배분 기준
             </h3>
             <p className="text-xs text-neutral-600">
-              반 고흐 21은 창작자의 정당한 권익 보호와 자립을 위해 명확한 정산 기준을 사전에 공시합니다. (아래 배분율은 사업 모델 시연을 위한 운영 예시입니다.)
+              반 고흐 21은 창작자의 지속 가능한 자립과 플랫폼의 안정적 운영을 위해 4대 수익 파이프라인을 운영하며, 명확한 정산 기준을 사전에 공시합니다.
             </p>
 
             {/* Curatorial Academic Table */}
@@ -211,52 +221,61 @@ export const CuratorAboutModal: React.FC<CuratorAboutModalProps> = ({ onClose })
               <table className="w-full text-xs text-left border-collapse">
                 <thead>
                   <tr className="bg-neutral-100/70 border-b border-neutral-200 text-neutral-800">
-                    <th className="py-2.5 px-3 font-semibold w-24">구분</th>
-                    <th className="py-2.5 px-3 font-semibold">배분 항목 (예시)</th>
-                    <th className="py-2.5 px-3 font-semibold text-right w-20">비율</th>
+                    <th className="py-2.5 px-3 font-semibold w-28">수익 모델</th>
+                    <th className="py-2.5 px-3 font-semibold">운영 구조 및 배분 항목</th>
+                    <th className="py-2.5 px-3 font-semibold text-right w-24">비율 / 마진</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-neutral-200 text-neutral-700">
                   <tr>
+                    <td className="py-2.5 px-3 font-medium text-neutral-900 bg-neutral-50/50" rowSpan={2}>
+                      1. 원화 중개 수수료<br/>(주 수익원)
+                    </td>
+                    <td className="py-2 px-3">현지 창작자 정산 및 현지 창작 환경 지원비</td>
+                    <td className="py-2 px-3 text-right font-bold text-neutral-900">75~80%</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3">플랫폼 운영 수수료 (원화 1:1 거래)</td>
+                    <td className="py-2 px-3 text-right font-medium text-neutral-900">20~25%</td>
+                  </tr>
+                  <tr>
                     <td className="py-2.5 px-3 font-medium text-neutral-900 bg-neutral-50/50" rowSpan={3}>
-                      원작 소장권
+                      2. 공식 아트프린트<br/>(상시 판매 마진)
                     </td>
-                    <td className="py-2 px-3">현지 창작자 직접 정산</td>
-                    <td className="py-2 px-3 text-right font-bold text-neutral-900">60%</td>
-                  </tr>
-                  <tr>
-                    <td className="py-2 px-3">청년 미술 창작 기금 (화구 및 작업실 지원)</td>
-                    <td className="py-2 px-3 text-right font-medium">10%</td>
-                  </tr>
-                  <tr>
-                    <td className="py-2 px-3">전문 보관 및 플랫폼 운영 관리비</td>
-                    <td className="py-2 px-3 text-right text-neutral-500">30%</td>
-                  </tr>
-                  <tr>
-                    <td className="py-2.5 px-3 font-medium text-neutral-900 bg-neutral-50/50" rowSpan={4}>
-                      파인아트 에디션
-                    </td>
-                    <td className="py-2 px-3">캔버스 인쇄, 원목 액자 가공 및 국내 발송 실비</td>
+                    <td className="py-2 px-3">원목 프레임 및 파인아트 캔버스 정밀 제작 실비</td>
                     <td className="py-2 px-3 text-right text-neutral-500">35%</td>
                   </tr>
                   <tr>
-                    <td className="py-2 px-3">원작 작가 창작 로열티 (순이익의 50% 분배)</td>
-                    <td className="py-2 px-3 text-right font-bold text-neutral-900">30%</td>
+                    <td className="py-2 px-3">플랫폼 제품 판매 마진 (선재고 없는 주문 제작)</td>
+                    <td className="py-2 px-3 text-right font-bold text-neutral-900">35~40%</td>
                   </tr>
                   <tr>
-                    <td className="py-2 px-3">품질 검수 및 패키징 운영비</td>
-                    <td className="py-2 px-3 text-right text-neutral-500">30%</td>
+                    <td className="py-2 px-3">원작자 라이선스 창작 로열티 환원</td>
+                    <td className="py-2 px-3 text-right font-medium">25~30%</td>
                   </tr>
                   <tr>
-                    <td className="py-2 px-3">로컬 청년 예술가 육성 기금</td>
-                    <td className="py-2 px-3 text-right font-medium">5%</td>
+                    <td className="py-2.5 px-3 font-medium text-neutral-900 bg-neutral-50/50">
+                      3. 전용 아트 패키징<br/>및 운송 핸들링
+                    </td>
+                    <td className="py-2 px-3">미술품 맞춤형 특수 완충재 패키징 및 국내외 특송 실비 대행</td>
+                    <td className="py-2 px-3 text-right font-medium">10~15% 마진</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2.5 px-3 font-medium text-neutral-900 bg-neutral-50/50">
+                      4. 실물 2차 거래 마켓<br/>(장기 확장 모델)
+                    </td>
+                    <td className="py-2 px-3">
+                      디지털 정품 보증서 기반 1:1 실물 C2C 양도 중개<br/>
+                      <span className="text-[10px] text-neutral-500">* 미술진흥법 취지에 따라 재판매 대금 일부를 현지 원작자 로열티로 환원</span>
+                    </td>
+                    <td className="py-2 px-3 text-right font-bold text-neutral-900">5~10% 수수료</td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
             <p className="text-[11px] text-neutral-500 leading-normal pt-1">
-              * 위 항목 및 정산 비율은 플랫폼 시연과 사업 계획 검증을 위한 운영 모델 예시입니다.
+              * 조각투자 및 가상자산 모델을 완전히 배제하며, 실물 예술품의 1:1 안전 거래와 창작자 공정 배분을 지향합니다.
             </p>
           </section>
 
