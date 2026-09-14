@@ -83,8 +83,16 @@
   box-shadow: 0 20px 40px -15px rgba(11, 22, 44, 0.08), 0 0 1px 1px rgba(11, 22, 44, 0.05);
 }
 
-.certificate-card {
-  background: linear-gradient(135deg, #0d1a33 0%, #172d54 50%, #0b1528 100%);
-  border: 1px solid rgba(230, 161, 23, 0.35);
-  box-shadow: 0 25px 50px -12px rgba(13, 26, 51, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+.certificate-card,
+.certificate-card-original {
+  background: linear-gradient(135deg, #091326 0%, #15284f 50%, #07101e 100%);
+  border: 1px solid rgba(230, 161, 23, 0.45);
+  box-shadow: 0 25px 50px -12px rgba(11, 22, 44, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
+
+.certificate-card-print {
+  background: linear-gradient(135deg, #13171e 0%, #202734 50%, #0e1116 100%);
+  border: 1px solid rgba(203, 213, 225, 0.45);
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+

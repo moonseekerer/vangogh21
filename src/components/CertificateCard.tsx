@@ -93,6 +93,7 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, a
   const [isFlipped, setIsFlipped] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
 
+  const isOriginal = certificate.purchaseType === 'original_vault';
   const isRedeemed = certificate.vaultStatus === 'redeemed';
 
   const handleCopyLink = () => {
@@ -125,28 +126,42 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, a
         }`}>
           
           {/* Card Front */}
-          <div className="absolute inset-0 w-full h-full rounded-2xl p-6 certificate-card text-vangogh-canvas flex flex-col justify-between [backface-visibility:hidden] select-none">
+          <div className={`absolute inset-0 w-full h-full rounded-2xl p-6 ${
+            isOriginal ? 'certificate-card-original text-vangogh-canvas' : 'certificate-card-print text-slate-100'
+          } flex flex-col justify-between [backface-visibility:hidden] select-none transition-all`}>
             
             {/* Top Bar */}
-            <div className="flex items-center justify-between border-b border-vangogh-gold/20 pb-3">
+            <div className={`flex items-center justify-between border-b pb-3 ${
+              isOriginal ? 'border-vangogh-gold/20' : 'border-slate-400/25'
+            }`}>
               <div className="flex items-center gap-2">
                 <img 
                   src="./logo.jpg" 
                   alt="반 고흐 21 로고" 
-                  className="w-7 h-7 rounded-full border border-vangogh-gold/40"
+                  className={`w-7 h-7 rounded-full border ${
+                    isOriginal ? 'border-vangogh-gold/40' : 'border-slate-300/60'
+                  }`}
                 />
-                <span className="text-xs tracking-widest text-vangogh-gold uppercase font-bold">
+                <span className={`text-xs tracking-widest uppercase font-bold ${
+                  isOriginal ? 'text-vangogh-gold' : 'text-slate-200'
+                }`}>
                   VAN GOGH 21
                 </span>
               </div>
-              <span className="text-[10px] font-mono tracking-wider text-vangogh-gold/90 px-2 py-0.5 rounded bg-vangogh-navy/80 border border-vangogh-gold/30">
+              <span className={`text-[10px] font-mono tracking-wider px-2 py-0.5 rounded ${
+                isOriginal 
+                  ? 'bg-vangogh-navy/80 border border-vangogh-gold/30 text-vangogh-gold/90' 
+                  : 'bg-slate-900/80 border border-slate-400/40 text-slate-200'
+              }`}>
                 {certificate.serialNumber}
               </span>
             </div>
 
             {/* Middle Artwork Thumbnail & Title */}
             <div className="space-y-3 my-auto">
-              <div className="w-20 h-20 mx-auto rounded-lg overflow-hidden border border-vangogh-gold/40 shadow-md">
+              <div className={`w-20 h-20 mx-auto rounded-lg overflow-hidden shadow-md border ${
+                isOriginal ? 'border-vangogh-gold/40' : 'border-slate-300/50'
+              }`}>
                 <img 
                   src={artwork?.imageUrl || "./artworks/artwork-01.jpg"} 
                   alt={certificate.artworkTitle}
@@ -155,40 +170,46 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, a
               </div>
 
               <div className="text-center space-y-1">
-                <span className="text-[11px] text-vangogh-gold uppercase tracking-wider block">
-                  {certificate.purchaseType === 'original_vault' ? '원작 1:1 독점 소장 증명서' : '공식 아트 프린팅 주문 증명서'}
+                <span className={`text-[11px] uppercase tracking-wider block font-semibold ${
+                  isOriginal ? 'text-vangogh-gold' : 'text-slate-300'
+                }`}>
+                  {isOriginal ? '원작 1:1 독점 소장 증명서' : '공식 아트 프린팅 주문 증명서'}
                 </span>
                 <h3 className="text-lg font-bold text-white tracking-tight">
                   {certificate.artworkTitle}
                 </h3>
-                <p className="text-xs text-vangogh-canvas/70">
+                <p className={`text-xs ${isOriginal ? 'text-vangogh-canvas/70' : 'text-slate-300/80'}`}>
                   작가 : {certificate.artistName} (Fiji)
                 </p>
               </div>
             </div>
 
             {/* Bottom Status & Collector Info */}
-            <div className="border-t border-vangogh-gold/20 pt-3 space-y-2">
+            <div className={`border-t pt-3 space-y-2 ${
+              isOriginal ? 'border-vangogh-gold/20' : 'border-slate-400/25'
+            }`}>
               <div className="flex items-center justify-between text-xs">
-                <span className="text-vangogh-canvas/60">
-                  {certificate.purchaseType === 'original_vault' ? '공식 독점 소장자' : '주문자 / 수령인'}
+                <span className={isOriginal ? 'text-vangogh-canvas/60' : 'text-slate-400'}>
+                  {isOriginal ? '공식 독점 소장자' : '주문자 / 수령인'}
                 </span>
-                <span className="font-bold text-vangogh-gold">{(certificate.collectorName || '김모두').replace('박문식', '김모두')} 님</span>
+                <span className={`font-bold ${isOriginal ? 'text-vangogh-gold' : 'text-slate-100'}`}>
+                  {(certificate.collectorName || '김모두').replace('박문식', '김모두')} 님
+                </span>
               </div>
               <div className="flex items-center justify-between text-xs">
-                <span className="text-vangogh-canvas/60">발급 일자</span>
-                <span className="text-vangogh-canvas/80 font-mono text-[11px]">{certificate.mintedAt}</span>
+                <span className={isOriginal ? 'text-vangogh-canvas/60' : 'text-slate-400'}>발급 일자</span>
+                <span className={`font-mono text-[11px] ${isOriginal ? 'text-vangogh-canvas/80' : 'text-slate-300'}`}>{certificate.mintedAt}</span>
               </div>
               <div className="flex items-center justify-between text-xs pt-1">
-                <span className="text-vangogh-canvas/60">소장/배송 상태</span>
+                <span className={isOriginal ? 'text-vangogh-canvas/60' : 'text-slate-400'}>소장/배송 상태</span>
                 <span className={`px-2 py-0.5 rounded text-[11px] font-bold ${
-                  certificate.purchaseType === 'art_print'
-                    ? 'bg-vangogh-gold/20 text-vangogh-gold border border-vangogh-gold/40'
+                  !isOriginal
+                    ? 'bg-slate-700/60 text-slate-200 border border-slate-400/40'
                     : isRedeemed 
                       ? 'bg-green-900/80 text-green-300 border border-green-500/30'
                       : 'bg-vangogh-gold/20 text-vangogh-gold border border-vangogh-gold/40'
                 }`}>
-                  {certificate.purchaseType === 'art_print'
+                  {!isOriginal
                     ? '실물 액자 제작 및 배송 접수'
                     : isRedeemed 
                       ? '실물 원화 인도 완료' 
@@ -201,27 +222,43 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, a
           </div>
 
           {/* Card Back (Provenance & Anti-tamper text & Artist Signature) */}
-          <div className="absolute inset-0 w-full h-full rounded-2xl p-5 certificate-card text-vangogh-canvas flex flex-col justify-between [transform:rotateY(180deg)] [backface-visibility:hidden] select-none">
+          <div className={`absolute inset-0 w-full h-full rounded-2xl p-5 ${
+            isOriginal ? 'certificate-card-original text-vangogh-canvas' : 'certificate-card-print text-slate-100'
+          } flex flex-col justify-between [transform:rotateY(180deg)] [backface-visibility:hidden] select-none transition-all`}>
             
             {/* Top Bar */}
-            <div className="flex items-center justify-between border-b border-vangogh-gold/20 pb-2">
-              <span className="text-xs font-bold text-vangogh-gold tracking-wider">
-                {certificate.purchaseType === 'original_vault' ? 'OFFICIAL PROVENANCE' : 'ART PRINT CERTIFICATE'}
+            <div className={`flex items-center justify-between border-b pb-2 ${
+              isOriginal ? 'border-vangogh-gold/20' : 'border-slate-400/25'
+            }`}>
+              <span className={`text-xs font-bold tracking-wider ${
+                isOriginal ? 'text-vangogh-gold' : 'text-slate-200'
+              }`}>
+                {isOriginal ? 'OFFICIAL PROVENANCE' : 'ART PRINT CERTIFICATE'}
               </span>
-              <span className="text-[10px] text-vangogh-canvas/60 font-mono">{certificate.serialNumber}</span>
+              <span className={`text-[10px] font-mono ${
+                isOriginal ? 'text-vangogh-canvas/60' : 'text-slate-400'
+              }`}>
+                {certificate.serialNumber}
+              </span>
             </div>
 
             {/* Provenance Text */}
-            <div className="space-y-2 text-[11px] text-vangogh-canvas/80 leading-relaxed">
+            <div className={`space-y-2 text-[11px] leading-relaxed ${
+              isOriginal ? 'text-vangogh-canvas/80' : 'text-slate-300'
+            }`}>
               <p className="text-[11px] leading-snug">
-                {certificate.purchaseType === 'original_vault'
+                {isOriginal
                   ? '본 증명서는 남태평양 피지(Fiji) 현지에서 직접 수거된 정품 원화의 유일무이한 소장 권리를 보증합니다.'
                   : '본 증명서는 남태평양 피지 원작 작가의 공인 하에 파인아트 캔버스지로 제작된 공식 아트 프린팅 실물 액자임을 보증합니다.'
                 }
               </p>
-              <div className="p-2 rounded bg-vangogh-navy/70 border border-vangogh-gold/20 text-[10px] space-y-0.5">
+              <div className={`p-2 rounded text-[10px] space-y-0.5 ${
+                isOriginal 
+                  ? 'bg-vangogh-navy/70 border border-vangogh-gold/20' 
+                  : 'bg-slate-900/70 border border-slate-400/25 text-slate-200'
+              }`}>
                 <div><strong>큐레이터 검수:</strong> 반 고흐 21 공식 큐레이션 팀 (피지 지부)</div>
-                {certificate.purchaseType === 'original_vault' ? (
+                {isOriginal ? (
                   <>
                     <div><strong>안심 보관 기간:</strong> {certificate.vaultExpiryDate}까지 무료 보관</div>
                     <div><strong>이중 양도 방지:</strong> 실제 작품 교환 시 디지털 카드는 동결 처리됩니다.</div>
@@ -236,30 +273,52 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, a
             </div>
 
             {/* Artist Handwritten Signature in White Ink */}
-            <div className="p-2.5 rounded-xl bg-vangogh-navy/90 border border-vangogh-gold/30 shadow-inner flex flex-col justify-between">
-              <div className="flex items-center justify-between text-[9px] text-vangogh-gold tracking-wider uppercase font-semibold border-b border-vangogh-gold/15 pb-1">
+            <div className={`p-2.5 rounded-xl shadow-inner flex flex-col justify-between ${
+              isOriginal 
+                ? 'bg-vangogh-navy/90 border border-vangogh-gold/30' 
+                : 'bg-slate-900/90 border border-slate-400/35'
+            }`}>
+              <div className={`flex items-center justify-between text-[9px] tracking-wider uppercase font-semibold border-b pb-1 ${
+                isOriginal 
+                  ? 'text-vangogh-gold border-vangogh-gold/15' 
+                  : 'text-slate-200 border-slate-400/20'
+              }`}>
                 <span>ARTIST SIGNATURE (작가 친필 서명)</span>
-                <span className="text-white/60 font-mono text-[8px]">HAND-SIGNED INK</span>
+                <span className={`font-mono text-[8px] ${isOriginal ? 'text-white/60' : 'text-slate-400'}`}>HAND-SIGNED INK</span>
               </div>
               
               <div className="py-1 flex items-center justify-center">
                 <ArtistSignature artistName={certificate.artistName} />
               </div>
 
-              <div className="flex items-center justify-between text-[10px] text-vangogh-canvas/70 font-mono pt-1 border-t border-vangogh-gold/15">
+              <div className={`flex items-center justify-between text-[10px] font-mono pt-1 border-t ${
+                isOriginal 
+                  ? 'text-vangogh-canvas/70 border-vangogh-gold/15' 
+                  : 'text-slate-300 border-slate-400/20'
+              }`}>
                 <span className="text-white font-medium">{getArtistEnglishName(certificate.artistName)}</span>
-                <span className="text-[9px] text-vangogh-gold/80">Fiji Islands</span>
+                <span className={`text-[9px] ${isOriginal ? 'text-vangogh-gold/80' : 'text-slate-300 font-semibold'}`}>Fiji Islands</span>
               </div>
             </div>
 
             {/* Tamper-proof Authenticated Seal with Official Logo */}
-            <div className="border-t border-vangogh-gold/20 pt-2 flex items-center justify-between">
-              <div className="text-[9px] text-vangogh-canvas/60 leading-tight">
-                <span className="font-semibold text-vangogh-canvas/90">VAN GOGH 21 OFFICIAL SEAL</span>
+            <div className={`border-t pt-2 flex items-center justify-between ${
+              isOriginal ? 'border-vangogh-gold/20' : 'border-slate-400/25'
+            }`}>
+              <div className={`text-[9px] leading-tight ${
+                isOriginal ? 'text-vangogh-canvas/60' : 'text-slate-400'
+              }`}>
+                <span className={`font-semibold ${isOriginal ? 'text-vangogh-canvas/90' : 'text-slate-200'}`}>
+                  {isOriginal ? 'VAN GOGH 21 OFFICIAL SEAL' : 'VAN GOGH 21 ART PRINT SEAL'}
+                </span>
                 <br />
-                <span className="text-vangogh-gold font-mono">TAMPER-PROOF VERIFIED</span>
+                <span className={`font-mono ${isOriginal ? 'text-vangogh-gold' : 'text-slate-300'}`}>
+                  {isOriginal ? 'TAMPER-PROOF VERIFIED' : 'FINE ART PRINT VERIFIED'}
+                </span>
               </div>
-              <div className="w-8 h-8 rounded-full overflow-hidden border border-vangogh-gold/60 shadow-sm shrink-0">
+              <div className={`w-8 h-8 rounded-full overflow-hidden border shadow-sm shrink-0 ${
+                isOriginal ? 'border-vangogh-gold/60' : 'border-slate-300/70'
+              }`}>
                 <img 
                   src="./logo.jpg" 
                   alt="반 고흐 21 공식 로고 인장" 

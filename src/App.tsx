@@ -28,7 +28,7 @@ try {
   // ignore
 }
 
-// Initial sample certificate for testing
+// Initial sample certificates for testing
 const INITIAL_SAMPLE_CERT: OwnershipCertificate = {
   certificateId: 'cert-sample-01',
   serialNumber: 'VG21-ORIGINAL-2026-108',
@@ -42,6 +42,26 @@ const INITIAL_SAMPLE_CERT: OwnershipCertificate = {
   mintedAt: '2026-09-12',
   vaultStatus: 'in_vault',
   vaultExpiryDate: '2027-09-12',
+};
+
+const INITIAL_SAMPLE_PRINT_CERT: OwnershipCertificate = {
+  certificateId: 'cert-sample-02',
+  serialNumber: 'VG21-PRINT-2026-042',
+  artworkId: 'fiji-02',
+  artworkTitle: '맹그로브 숲의 침묵',
+  artistName: '마리카 나이라',
+  collectorName: '김모두',
+  collectorPhone: '010-9876-5432',
+  purchaseType: 'art_print',
+  price: 34000,
+  mintedAt: '2026-09-13',
+  vaultStatus: 'delivered',
+  shippingAddress: {
+    recipient: '김모두',
+    phone: '010-9876-5432',
+    address: '서울특별시 성동구 성수이로 22 (성수 어반스페이스 3층)',
+    postalCode: '04781',
+  },
 };
 
 export const App: React.FC = () => {
@@ -89,15 +109,19 @@ export const App: React.FC = () => {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
-        return parsed.map((c: OwnershipCertificate) => ({
+        const mapped = parsed.map((c: OwnershipCertificate) => ({
           ...c,
           collectorName: c.collectorName ? c.collectorName.replace('박문식', '김모두') : '김모두'
         }));
+        if (!mapped.some((c: OwnershipCertificate) => c.purchaseType === 'art_print')) {
+          return [...mapped, INITIAL_SAMPLE_PRINT_CERT];
+        }
+        return mapped;
       }
     } catch (e) {
       // ignore
     }
-    return [INITIAL_SAMPLE_CERT];
+    return [INITIAL_SAMPLE_CERT, INITIAL_SAMPLE_PRINT_CERT];
   });
 
   useEffect(() => {
@@ -183,7 +207,7 @@ export const App: React.FC = () => {
       // ignore
     }
     setArtworks(MOCK_ARTWORKS);
-    setCertificates([INITIAL_SAMPLE_CERT]);
+    setCertificates([INITIAL_SAMPLE_CERT, INITIAL_SAMPLE_PRINT_CERT]);
   };
 
   const handleUpdateCertificate = (updated: OwnershipCertificate) => {
